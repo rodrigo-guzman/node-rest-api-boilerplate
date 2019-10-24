@@ -2,10 +2,7 @@
 const userService = new (require('../../infraestructure/httpService'))();
 const Users = require('../../domain/models/users');
 const fetch = require('node-fetch');
-//const usersCtrl = {};
-//const Joi = require('@hapi/joi');
-//const userSchema= require('../../domain/schemas/users.schema')
-
+const URI =  'https://2eja2nqth0.execute-api.us-east-1.amazonaws.com/api/users';//process.env.URI no pude hacerla andar con el valor desde el archivo de confirmacion
 
 
 class usersCtrlClass {
@@ -19,9 +16,7 @@ class usersCtrlClass {
     async getUsers(req, res, next) {
 
     try{ 
-        const json = await userService.requestService('https://2eja2nqth0.execute-api.us-east-1.amazonaws.com/api/users');
-        //res.status(200).json(json);
-        
+        const json = await userService.requestService(URI);
         let jsonUser= json.users;
         let usersActive= jsonUser.filter(function (item) {
           return item.is_active == true

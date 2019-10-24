@@ -1,41 +1,25 @@
 # node-rest-api-boilerplate
 
-👋 Hi, welcome to the test assessment.
+👋 Hi, this program was carried out for the Node.js course exam.
 
-Please take care of the requirements described below.
-You have only 4 hours to complete the entire test. To save time to develop all the things, we're providing a simple boilerplate with all the basics to start to develop immediately. Don't forget to document all, we evaluate functionality, coding style, and presentation.
+## Desctription
+It is separated into three layers: application, domain and infrastructure.
 
-## First Steps
-- Complete with your personal information the `package.json`.
-- Read carefully the requirements
-- Start to develop
+In the Infrastructure layer, the service call for the exam is executed:
+https://2eja2nqth0.execute-api.us-east-1.amazonaws.com/api/users
 
-## Requirements
+In the domain layer, create the model to validate it through the 'Joi' scheme, but do not use it finally.
+
+In the application layer, develop the controller you call the rotation. In it the method of the Infrastructure layer is instantiated, passing the url as a parameter.
+For the same I tried to take the value through a configuration file, but I did not get it. That's why it's set directly on the controller
+
+## Functionality
 Functionality: Get a list of active users
 
-Scenario: any member, with available services
+The service gets all active users sorted by last name. The time for the requirement to add age is not enough.
 
-```
-Given users exist in an external service
-When executing a GET petition to the /users endpoint
-Then I obtain all the active users ordered by last name
-And each user has a field with his calculated age
-```
+## Test
+For the service, add a test case in the Test folder, in the users.test.js file.
 
-Services to consume
-- API Endpoint - https://2eja2nqth0.execute-api.us-east-1.amazonaws.com/api/users
-- Swagger - https://app.swaggerhub.com/apis/jbrizio/ms-users-api/1.0.0
-
-# Deliverables
-- Repository on Github
-- Swagger
-- Test cases
-
-## Stack used
-- Node.js
-- Express
-
-## Advice
-Please document all the things that you consider necessary. Follow the good practices followed in the course.
-
-Good luck! 💪
+## Libraries
+The libraries used are: "@hapi/joi": ","chai-http": ","dotenv","express","morgan","node-fetch","nodemon","chai","mocha"
